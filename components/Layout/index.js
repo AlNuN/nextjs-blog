@@ -1,19 +1,20 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import styles from './layout.module.css';
-import utilStyles from '../styles/utils.module.css';
+import {
+  Header, HeaderHomeImage, Heading2XL, HeadingLG, Ainherit, Container, BackToHome,
+} from './style';
 
 const name = 'Matheus Nunes';
-export const siteTitle = 'Next.js Sample Website';
+export const siteTitle = `${name} personal website`;
 
 export default function Layout({ children, home }) {
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="Matheus Alves Nunes personal website"
         />
         <meta
           property="og:image"
@@ -24,43 +25,41 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      <Header>
         {home ? (
           <>
-            <img
+            <HeaderHomeImage
               src="/images/profile.jpg"
-              className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
               alt={name}
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <Heading2XL>{name}</Heading2XL>
           </>
         ) : (
           <>
             <Link href="/">
               <a>
-                <img
+                <HeaderHomeImage
                   src="/images/profile.jpg"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
                   alt={name}
                 />
               </a>
             </Link>
-            <h2 className={utilStyles.headingLg}>
+            <HeadingLG>
               <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
+                <Ainherit>{name}</Ainherit>
               </Link>
-            </h2>
+            </HeadingLG>
           </>
         )}
-      </header>
+      </Header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <BackToHome>
           <Link href="/">
             <a>← Back to home</a>
           </Link>
-        </div>
+        </BackToHome>
       )}
-    </div>
+    </Container>
   );
 }
