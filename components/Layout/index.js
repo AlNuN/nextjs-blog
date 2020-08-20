@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import {
-  Header, HeaderHomeImage, Heading2XL, HeadingLG, Ainherit, Container, BackToHome,
+  Header, HeaderHomeImage, Ainherit, Container, BackToHome,
 } from './style';
+import { Heading2XL, HeadingLG } from '../../pages/style';
 
 const name = 'Matheus Nunes';
 export const siteTitle = `${name} personal website`;
