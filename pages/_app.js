@@ -5,6 +5,11 @@ const theme = {
   colors: {
     primary: '#0070f3',
     light: '#999',
+    spaceCadet: 'hsla(233, 24%, 19%, 1)',
+    plum: 'hsla(307, 43%, 39%, 1)',
+    pearlyPurple: 'hsla(306, 22%, 55%, 1)',
+    tuscany: 'hsla(346, 31%, 72%, 1)',
+    champagnePink: 'hsla(20, 51%, 87%, 1)',
   },
 };
 
