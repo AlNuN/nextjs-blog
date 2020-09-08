@@ -1,57 +1,56 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import {
-  Header, HeaderHomeImage, Ainherit, Container, BackToHome,
+  Header, Ainherit, Container, BackToHome, Nav,
 } from './style';
-import { Heading2XL, HeadingLG } from '../../pages/style';
+import { HeadingLG } from '../../pages/style';
 
 const name = 'Matheus Nunes';
 export const siteTitle = `${name} personal website`;
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home, blog, portfolio }) {
   return (
     <Container>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/MAN.svg" />
         <meta
           name="description"
           content="Matheus Alves Nunes personal website"
         />
-        <meta
+        {/* <meta
           property="og:image"
           content={`https://og-image.now.sh/${encodeURI(
             siteTitle,
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
+        /> */}
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header>
-        {home ? (
-          <>
-            <HeaderHomeImage
-              src="/images/profile.jpg"
-              alt={name}
-            />
-            <Heading2XL>{name}</Heading2XL>
-          </>
-        ) : (
-          <>
+        <>
+          <Nav>
             <Link href="/">
               <a>
-                <HeaderHomeImage
-                  src="/images/profile.jpg"
-                  alt={name}
-                />
+                Home
               </a>
             </Link>
-            <HeadingLG>
-              <Link href="/">
-                <Ainherit>{name}</Ainherit>
-              </Link>
-            </HeadingLG>
-          </>
-        )}
+            <Link href="/portfolio">
+              <a>
+                Portfolio
+              </a>
+            </Link>
+            <Link href="/blog">
+              <a>
+                Blog
+              </a>
+            </Link>
+          </Nav>
+          <HeadingLG>
+            <Link href="/">
+              <Ainherit>{name}</Ainherit>
+            </Link>
+          </HeadingLG>
+        </>
       </Header>
       <main>{children}</main>
       {!home && (

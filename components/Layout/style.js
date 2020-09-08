@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
+const Nav = styled.nav`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; 
+  width: 100%;
+`;
+
 const Header = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const HeaderHomeImage = styled.img`
-  width: 8rem;
-  height: 8rem;
-  border-radius: 9999px;
 `;
 
 const Ainherit = styled.a`
@@ -28,8 +29,8 @@ const BackToHome = styled.div`
 
 export {
   Header,
-  HeaderHomeImage,
   Ainherit,
   Container,
   BackToHome,
+  Nav,
 };
