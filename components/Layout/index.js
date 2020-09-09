@@ -1,14 +1,16 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import {
-  Header, Ainherit, Container, BackToHome, Nav,
+  Header, Ainherit, Container, Nav,
 } from './style';
 import { HeadingLG } from '../../pages/style';
 
 const name = 'Matheus Nunes';
 export const siteTitle = `${name} personal website`;
 
-export default function Layout({ children, home, blog, portfolio }) {
+export default function Layout({
+  children, page,
+}) {
   return (
     <Container>
       <Head>
@@ -27,39 +29,30 @@ export default function Layout({ children, home, blog, portfolio }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header>
-        <>
-          <Nav>
-            <Link href="/">
-              <a>
-                Home
-              </a>
-            </Link>
-            <Link href="/portfolio">
-              <a>
-                Portfolio
-              </a>
-            </Link>
-            <Link href="/blog">
-              <a>
-                Blog
-              </a>
-            </Link>
-          </Nav>
-          <HeadingLG>
-            <Link href="/">
-              <Ainherit>{name}</Ainherit>
-            </Link>
-          </HeadingLG>
-        </>
+        <Nav page={page}>
+          <Link href="/">
+            <a>
+              Home
+            </a>
+          </Link>
+          <Link href="/portfolio">
+            <a>
+              Portfolio
+            </a>
+          </Link>
+          <Link href="/blog">
+            <a>
+              Blog
+            </a>
+          </Link>
+        </Nav>
+        <HeadingLG>
+          <Link href="/">
+            <Ainherit>{name}</Ainherit>
+          </Link>
+        </HeadingLG>
       </Header>
       <main>{children}</main>
-      {!home && (
-        <BackToHome>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </BackToHome>
-      )}
     </Container>
   );
 }

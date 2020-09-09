@@ -18,15 +18,14 @@ export async function getStaticProps() {
 
 export default function Home({ allPostsData }) {
   return (
-    <Layout home>
+    <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <HeadingMd>
         <p>
-          Hello, I'm Matheus. I'm a software developer. You can contact me on
-          {' '}
-          <a href="https://twitter.com/matallves">Twitter</a>
+          I'm a JavaScript developer that loves to learn new technologies.
+          You can contact me on my e-mail matheus.alnun@gmail.com
         </p>
       </HeadingMd>
       <HeadingMdPadding>

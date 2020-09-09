@@ -5,6 +5,10 @@ const Nav = styled.nav`
   flex-direction: row;
   justify-content: space-around; 
   width: 100%;
+
+  a[${(props) => `href="/${props.page || ''}"`}]{
+    color: black;
+  }
 `;
 
 const Header = styled.header`
