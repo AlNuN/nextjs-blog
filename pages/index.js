@@ -8,15 +8,15 @@ import {
 } from './style';
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData(1);
+  const lastPostsData = getSortedPostsData('posts', 3);
   return {
     props: {
-      allPostsData,
+      lastPostsData,
     },
   };
 }
 
-export default function Home({ allPostsData }) {
+export default function Home({ lastPostsData }) {
   return (
     <Layout>
       <Head>
@@ -31,7 +31,7 @@ export default function Home({ allPostsData }) {
       <HeadingMdPadding>
         <HeadingLG>Blog</HeadingLG>
         <Ul>
-          {allPostsData.map(({ id, date, title }) => (
+          {lastPostsData.map(({ id, date, title }) => (
             <Li key={id}>
               <Link href="posts/[id]" as={`posts/${id}`}>
                 <a>{title}</a>
