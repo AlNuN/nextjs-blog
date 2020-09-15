@@ -8,7 +8,7 @@ import {
 } from './style';
 
 export async function getStaticProps() {
-  const lastPostsData = getSortedPostsData('posts', 3);
+  const lastPostsData = await getSortedPostsData('posts', 3);
   return {
     props: {
       lastPostsData,

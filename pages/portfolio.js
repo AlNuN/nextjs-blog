@@ -6,7 +6,7 @@ import {
 } from './style';
 
 export async function getStaticProps() {
-  const allCardsData = getSortedPostsData('portfolio');
+  const allCardsData = await getSortedPostsData('portfolio', undefined, true);
   return {
     props: {
       allCardsData,
@@ -20,13 +20,14 @@ export default function Portfolio({allCardsData}) {
       <HeadingMdPadding>
         <HeadingLG>Portfolio</HeadingLG>
         <Ul>
-          {allCardsData.map(({ id, date, title }) => (
+          {allCardsData.map(({ id, date, title, contentHtml }) => (
             <Li key={id}>
                 <div>{title}</div>
               <br />
               <LightDate as="small">
                 <Date dateString={date} />
               </LightDate>
+              <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
             </Li>
           ))}
         </Ul>

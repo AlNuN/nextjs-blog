@@ -6,7 +6,7 @@ import {
 import { HeadingLG } from '../../pages/style';
 
 const name = 'Matheus Nunes';
-export const siteTitle = `${name} personal website`;
+export const siteTitle = `${name} Front-end developer`;
 
 export default function Layout({
   children, page,
