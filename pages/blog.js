@@ -6,8 +6,8 @@ import {
   HeadingLG, HeadingMdPadding, Ul, Li, LightDate,
 } from './style';
 
-export async function getStaticProps() {
-  const allPostsData = await getSortedPostsData('posts');
+export function getStaticProps() {
+  const allPostsData = getSortedPostsData('posts');
   return {
     props: {
       allPostsData,
