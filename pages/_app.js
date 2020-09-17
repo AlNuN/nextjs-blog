@@ -3,13 +3,17 @@ import { ThemeProvider } from 'styled-components';
 
 const theme = {
   colors: {
-    primary: '#0070f3',
-    light: '#999',
-    spaceCadet: 'hsla(233, 24%, 19%, 1)',
-    plum: 'hsla(307, 43%, 39%, 1)',
-    pearlyPurple: 'hsla(306, 22%, 55%, 1)',
-    tuscany: 'hsla(346, 31%, 72%, 1)',
-    champagnePink: 'hsla(20, 51%, 87%, 1)',
+    primary1: 'hsl(276, 91%, 23%)',
+    primary2: 'hsl(162, 63%, 41%)',
+    primary3: 'hsl(268, 82%, 60%)',
+    primary4: 'hsl(262, 100%, 78%)',
+    primary5: 'hsl(262, 90%, 96%)',
+    neutral1: 'hsl(209, 61%, 16%)',
+    neutral2: 'hsl(209, 34%, 30%)',
+    neutral3: 'hsl(210, 22%, 49%)',
+    neutral4: 'hsl(211, 27%, 70%)',
+    neutral5: 'hsl(210, 36%, 96%)',
+    link: 'hsl(199, 84%, 55%)',
   },
 };
 
