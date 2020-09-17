@@ -2,7 +2,9 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
 import Date from '../../components/date';
-import { HeadingXl, LightDate } from '../style';
+import {
+  HeadingXl, LightDate, SubLink, PostContent,
+} from '../../components/style';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 
 const directory = 'posts';
@@ -35,12 +37,12 @@ export default function Post({ postData }) {
         <LightDate>
           <Date dateString={postData.date} />
         </LightDate>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <PostContent dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
       <Link href="/blog">
-        <a>
+        <SubLink>
           &larr; Back to Blog
-        </a>
+        </SubLink>
       </Link>
     </Layout>
   );

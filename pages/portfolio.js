@@ -3,8 +3,8 @@ import Layout from '../components/Layout';
 import { getSortedPostsData } from '../lib/posts';
 import Date from '../components/date';
 import {
-  HeadingLG, HeadingMdPadding, Ul, Li, LightDate,
-} from './style';
+  HeadingMdPadding, Ul, PortLi, LightDate, Title, SubLink, Description, Picture,
+} from '../components/style';
 
 export function getStaticProps() {
   const allCardsData = getSortedPostsData('posts', undefined, 'portfolio');
@@ -19,27 +19,30 @@ export default function Portfolio({ allCardsData }) {
   return (
     <Layout page="portfolio">
       <HeadingMdPadding>
-        <HeadingLG>Portfolio</HeadingLG>
         <Ul>
-          {
-            allCardsData.map(({
-              id, date, title, photo, description,
-            }) => (
-              <Li key={id}>
+          {allCardsData.map(({
+            id, date, title, photo, description,
+          }) => (
+            <PortLi key={id}>
+              <Picture>
+                <source srcSet={`images/${id}-1.webp`} type="image/webp" />
+                <img src={`images/${id}-1.png`} alt={photo[0]} />
+              </Picture>
+              <div>
                 <Link href="posts/[id]" as={`posts/${id}`}>
-                  <a>{title}</a>
+                  <Title>{title}</Title>
                 </Link>
                 <br />
-                <picture>
-                  <source srcSet={`images/${id}-1.webp`} type="image/webp" />
-                  <img src={`images/${id}-1.png`} alt={photo[0]} />
-                </picture>
                 <LightDate as="small">
                   <Date dateString={date} />
                 </LightDate>
-                <div>{description}</div>
-              </Li>
-            ))}
+                <Description>{description}</Description>
+                <Link href="posts/[id]" as={`posts/${id}`}>
+                  <SubLink>Blog post &#8594;</SubLink>
+                </Link>
+              </div>
+            </PortLi>
+          ))}
         </Ul>
       </HeadingMdPadding>
     </Layout>

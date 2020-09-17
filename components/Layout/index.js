@@ -1,9 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import {
-  Header, Ainherit, Container, Nav,
+  Header, SiteName, Container, Nav, Main,
 } from './style';
-import { HeadingLG } from '../../pages/style';
 
 const name = 'Matheus Nunes';
 export const siteTitle = `${name} Front-end developer`;
@@ -27,8 +26,12 @@ export default function Layout({
         /> */}
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap" rel="stylesheet" />
       </Head>
       <Header>
+        <Link href="/">
+          <SiteName>{name}</SiteName>
+        </Link>
         <Nav page={page}>
           <Link href="/">
             <a>
@@ -46,13 +49,8 @@ export default function Layout({
             </a>
           </Link>
         </Nav>
-        <HeadingLG>
-          <Link href="/">
-            <Ainherit>{name}</Ainherit>
-          </Link>
-        </HeadingLG>
       </Header>
-      <main>{children}</main>
+      <Main>{children}</Main>
     </Container>
   );
 }
